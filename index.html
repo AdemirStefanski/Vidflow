@@ -1,20 +1,58 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link
-            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
-            rel="stylesheet"
-        />
-        <link rel="stylesheet" href="./css/reset.css">
-        <link rel="stylesheet" href="./css/estilos.css">
-        <link rel="stylesheet" href="./css/flexbox.css">
-        <title>VidFlow</title>
-        <link rel="shortcut icon" href="./img/Favicon.png" type="image/x-icon">
-    </head>
-<body>
-
-
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/estilos.css" />
+    <link rel="stylesheet" href="./css/flexbox.css" />
+    <title>VidFlow</title>
+    <link rel="shortcut icon" href="./img/Favicon.png" type="image/x-icon" />
+  </head>
+  <body>
+    <header>
+      <nav class="cabecalho__container">
+        <!-- VidFlow Logo -->
+        <div class="logo__item">
+          <img src="./img/VidFlow--Logo-light-mode.png" alt="Logo VidFlow" />
+        </div>
+        <!-- Search Bar -->
+        <div class="cabecalho__pesquisar__item">
+          <form class="form__pesquisa">
+            <input
+              type="search"
+              class="pesquisar__input"
+              placeholder="Search"
+            />
+            <img
+              src="./img/topbar/keyboard.png"
+              class="pesquisar__input-teclado"
+              alt="keyboard icon"
+            />
+            <button class="pesquisar__btn">
+              <img src="./img/topbar/search.png" alt="Search Icon" />
+            </button>
+            <button class="cabecalho__audio">
+              <img src="./img/topbar/Mic.png" alt="Mic Icon" />
+            </button>
+          </form>
+        </div>
+        <!-- NavBar Icons -->
+        <div class="cabecalho__icones__item">
+          <a href="#" class="cabecalho__videos"></a>
+          <a href="#" class="cabecalho__apps"></a>
+          <a href="#" class="cabecalho__notificacoes"></a>
+          <a href="#" class="cabecalho__avatar"></a>
+          <label class="cabecalho__switch">
+            <input type="checkbox" class="cabecalho__switch-input" />
+            <span class="cabecalho__switch-slider"></span>
+          </label>
+        </div>
+      </nav>
+    </header>
+  </body>
 </html>
