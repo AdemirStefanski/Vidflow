@@ -2,6 +2,7 @@ const containerVideos = document.querySelector(".videos__container");
 
 const linkApi = "http://localhost:3000/videos";
 
+// Search and display API data
 async function buscarEMostrarVideos() {
   try {
     const searchVideos = await fetch(linkApi);
@@ -26,6 +27,7 @@ async function buscarEMostrarVideos() {
 
 buscarEMostrarVideos();
 
+// Search bar
 const searchBar = document.querySelector(".pesquisar__input");
 
 searchBar.addEventListener("input", filterSearch);
@@ -51,6 +53,7 @@ function filterSearch() {
   }
 }
 
+// Category buttons
 const categoryButton = document.querySelectorAll(".superior__item");
 
 categoryButton.forEach((button) => {
