@@ -2,21 +2,50 @@ const containerVideos = document.querySelector(".videos__container");
 
 const linkApi = "http://localhost:3000/videos";
 
-const api = fetch(linkApi)
-  .then((res) => res.json())
-  .then((videos) =>
+async function buscarEMostrarVideos() {
+  try {
+    const searchVideos = await fetch(linkApi);
+    const videos = await searchVideos.json();
     videos.forEach((video) => {
       containerVideos.innerHTML += `
-    <li class="videos__item">
-      <iframe src="${video.url}" title="${video.titulo}" frameborder="0" allowfullscreen></iframe>
-      <div class="descricao-video">
-        <img class="img-canal" src="${video.imagem}" alt="Logo do canal"/>
-        <h3 class="titulo-video">${video.titulo}</h3>
-        <p class="titulo-canal">${video.descricao}</p>
-      </div>
+      <li class="videos__item">
+        <iframe src="${video.url}" title="${video.titulo}" frameborder="0" allowfullscreen></iframe>
+        <div class="descricao-video">
+          <img class="img-canal" src="${video.imagem}" alt="Logo do canal"/>
+          <h3 class="titulo-video">${video.titulo}</h3>
+          <p class="titulo-canal">${video.descricao}</p>
+        </div>
+      </li>
+      `;
+    });
+  } catch (error) {
+    containerVideos.innerHTML = `<p> Houve um erro ao carregar os vídeos: ${error}</p>`;
+  }
+}
 
-    </li>
+buscarEMostrarVideos();
 
-    `;
-    })
-  );
+const searchBar = document.querySelector(".pesquisar__input");
+
+searchBar.addEventListener("input", filterSearch);
+
+function filterSearch() {
+  const videos = document.querySelectorAll(".videos__item");
+
+  if (searchBar.value != "") {
+    for (let video of videos) {
+      let titulo = video
+        .querySelector(".titulo-video")
+        .textContent.toLowerCase();
+      let filterValue = searchBar.value.toLowerCase();
+
+      if (!titulo.includes(filterValue)) {
+        video.style.display = "none";
+      } else {
+        video.style.display = "block";
+      }
+    }
+  } else {
+    video.style.display = "block";
+  }
+}
